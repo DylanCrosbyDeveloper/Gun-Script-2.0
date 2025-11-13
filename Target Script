@@ -1,0 +1,61 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TargetSystem : MonoBehaviour
+{
+    public GameObject TimerText;
+    public float health = 100f;
+    public GameObject Enemy;
+
+    bool isPlaying;
+    
+
+    public int TotalEnemies;
+    int NumofEnemies;
+
+    void Update()
+    {
+        
+        if (NumofEnemies <= TotalEnemies)
+        {
+            Timer timer = TimerText.GetComponent<Timer>();
+            timer.StopTimer();
+
+        }
+
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        
+
+        health -= damage;
+
+        if (health > 0)
+        {
+            
+        }
+        if (health <= 0f)
+        {
+            Die();
+
+          
+        }
+
+
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        NumofEnemies = NumofEnemies + 1;
+    }
+
+    
+
+}
